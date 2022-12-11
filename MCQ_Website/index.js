@@ -29,14 +29,19 @@ function mangebuttons(){
 }
 // buttons
 //buttoncoloring
- var m=1
-$('.mfr').on({
-    click:function(){$('#bt'+ m++).removeClass('btn-outline-primary').addClass('btn-outline-danger')},
-    // dblclick:function(){$('#bt'+ m++).removeClass('btn-outline-danger').addClass('btn-outline-primary')},
-})
-$('.radio').on({
-    click:function(){$('#bt'+ m++).removeClass('btn-outline-primary').addClass('btn-outline-info')},
-})
+function loadquestion(qno){
+    $('#q_'+ qno).removeClass('animate__animated animate__slideInRight hide').addClass('animate__animated animate__slideInRight show')
+    $('#row1 .q').not('#q_'+ qno).removeClass('animate__animated animate__slideInRight show').addClass('animate__animated animate__slideInRight hide')
+    /*Answered*/
+    $('.radio'+qno).on('click', function(){$('#bt'+qno).removeClass('btn-primary btn-secondary').addClass('btn-info')})
+    /*Answered*/
+    /*Mark for Review*/
+    $('.mfr').on('click', function(){$('#bt'+qno).removeClass('btn-primary btn-secondary btn-info').addClass('btn-danger')})
+    /*Mark for Review*/
+}
+/*Visted*/
+$('.b1').on('click', function(){$(this).removeClass('btn-primary').addClass('btn-secondary')})
+/*Visted*/
 //button coloring
 //calculator
 function add(){
